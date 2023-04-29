@@ -75,7 +75,13 @@ class TabWidget extends StatelessWidget {
         margin: margin);
 
     GestureDetector gestureDetector = GestureDetector(
-        onTap: () => _onSelect(context, index), child: tabContainer);
+        onTap: () => _onSelect(context, index),
+        onTertiaryTapUp: (details) {
+          _onClose(context, index);
+          debugPrint('middle clicked $details');
+        },
+        child: tabContainer
+    );
 
     MouseCursor cursor = MouseCursor.defer;
     if (status != TabStatus.selected) {

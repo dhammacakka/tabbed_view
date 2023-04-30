@@ -76,10 +76,6 @@ class TabWidget extends StatelessWidget {
 
     GestureDetector gestureDetector = GestureDetector(
         onTap: () => _onSelect(context, index),
-        onTertiaryTapUp: (details) {
-          _onClose(context, index);
-          debugPrint('middle clicked $details');
-        },
         child: tabContainer
     );
 

@@ -129,12 +129,14 @@ class TabbedViewController extends ChangeNotifier {
   }
 
   /// Removes a tab.
-  TabData removeTab(int tabIndex) {
+  TabData removeTab(int tabIndex, {int selectedIndex = -1}) {
     _validateIndex(tabIndex);
     TabData tabData = _tabs.removeAt(tabIndex);
     tabData.removeListener(notifyListeners);
     if (_tabs.isEmpty) {
       _selectedIndex = null;
+    } else if (selectedIndex > -1 && selectedIndex < _tabs.length) {
+      _selectedIndex = _selectedIndex;
     } else if (_selectedIndex != null &&
         (_selectedIndex == tabIndex || _selectedIndex! >= _tabs.length)) {
       _selectedIndex = 0;

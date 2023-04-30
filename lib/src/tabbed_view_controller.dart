@@ -136,7 +136,7 @@ class TabbedViewController extends ChangeNotifier {
     if (_tabs.isEmpty) {
       _selectedIndex = null;
     } else if (selectedIndex > -1 && selectedIndex < _tabs.length) {
-      _selectedIndex = _selectedIndex;
+      _selectedIndex = selectedIndex;
     } else if (_selectedIndex != null &&
         (_selectedIndex == tabIndex || _selectedIndex! >= _tabs.length)) {
       _selectedIndex = 0;
